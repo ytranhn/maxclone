@@ -1,0 +1,81 @@
+<div class="main">
+    <div class="main-head row">
+        <div class="col-md-4 col-12 no-gutters">
+            <img src="assets/images/logo.png" alt="">
+        </div>
+        <div class="col-md-8 col-12 no-gutters">
+            <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">
+                <img src="assets/images/fb.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="main-body row">
+        <div class=" set1 col-md-4 col-12 no-gutters" *ngIf="userInfo">
+            <div class="row no-gutters">
+                <section class="col-md-12 col-6 no-gutters account">
+                    <p>Hello: <span>{{ userInfo.Data.Username }}</span></p>
+                    <p>Balance: <span>{{ userInfo.Data.Balance }}</span></p>
+                    <button class="basic-color" (click)="openModal('custom-modal-1')">LOGOUT</button>
+                    <jw-modal noCheck id="custom-modal-1">
+                        <h1>Do you want Logout?</h1>
+                        <button class="basic-color" (click)="Logout()">LOGOUT</button>
+                        <button class="basic-color" (click)="closeModal('custom-modal-1')">CANCEL</button>
+                    </jw-modal>
+                </section>
+                <section class="col-md-12 col-6 no-gutters rechange">
+                    <h1>HOW TO RECHARGE?</h1>
+                    <div class="row no-gutters">
+                        <div class="col-md-12 col-3 no-gutters momo">
+                            <img src="assets/images/momo.png">
+                            <span>MOMO</span>
+                        </div>
+                        <div class="col-md-12 col-9 no-gutters information">
+                            <p>To: 0903206359</p>
+                            <p>Name: Dương Đình Tú</p>
+                            <p>Content: <span style="font-weight: bold;">{{ userInfo.Data.Username }}</span></p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="set2 col-md-8 col-12 no-gutters">
+            <app-stock></app-stock>
+            <div class="stock">
+                <h2>TRANSACTION HISTORY</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>TYPE</th>
+                            <th>AMOUNT</th>
+                            <th>DESCRIPTION</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="fullTrans">
+                        <tr *ngFor="let item of fullTrans.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
+                            <td>{{ item.Date }}</td>
+                            <td>{{ item.Type }}</td>
+                            <td>{{ item.Amount }}</td>
+                            <td><span tooltip="{{ item.Description }}" placement="bottom" show-delay="100" hide-delay="100">{{ item.Description }}</span></td>
+                            <td><button class="basic-color" (click)="openModalTrans('success-trans',item.Id)">VIEW</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination-bot" *ngIf="isShow"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+            </div>
+        </div>
+    </div>
+    <jw-modal noCheck id="success-trans">
+        <h1>{{ notification }}</h1>
+        <h2>Data List:</h2>
+        <textarea>{{ textareatrans }}</textarea>
+        <button class="basic-color" (click)="dynamicDownloadTxt()">Download .txt File</button>
+        <button class="basic-color" (click)="dynamicDownloadJson()">Download .json File</button>
+        <button class="basic-color" (click)="closeModalTrans('success-trans')">Close Popup</button>
+    </jw-modal>
+    <jw-modal noCheck id="fail-trans">
+        <h1>{{ notification }}</h1>
+        <button class="basic-color" (click)="closeModalTrans('fail-trans')">Close</button>
+    </jw-modal>
+</div>

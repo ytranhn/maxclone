@@ -1,0 +1,4 @@
+.special tr th:last-child,
+.special tr td:last-child {
+  display: none;
+}

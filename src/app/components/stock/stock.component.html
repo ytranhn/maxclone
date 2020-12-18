@@ -1,0 +1,48 @@
+<div class="stock">
+    <h2>STOCK NOW</h2>
+    <table [class.special]="!isShow">
+        <thead>
+            <tr>
+                <th>ACCOUNT</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
+                <th>STOCK</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{ item.Name }}</td>
+                <td><span tooltip="{{ item.Description }}" placement="bottom" show-delay="100" hide-delay="100">{{ item.Description }}</span></td>
+                <td>{{ item.Price }}</td>
+                <td>{{ item.Instock }}</td>
+                <td>
+                    <button class="basic-color" (click)="openModalStock('buy-stock', item.Code)">BUY</button>
+                    <jw-modal noCheck id="buy-stock">
+                        <h1>Enter the quantity Stock</h1>
+                        <form #buyStockCop="ngForm" (ngSubmit)="buyStock(quantityStock.value)">
+                            <input type="number"  #quantityStock ngModel name="quantityStock" placeholder="Quantity" required><br>
+                            <button class="basic-color" type="submit">BUY</button>
+                            <button class="basic-color" type="button" (click)="closeModalStock('buy-stock')">CANCEL</button>
+                        </form>
+                    </jw-modal>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <jw-modal noCheck id="success-buy-stock">
+        <h1>{{ notification }}</h1>
+        <h2>Data List:</h2>
+        <textarea>{{ dataPurchased }}</textarea>
+        <button class="basic-color" (click)="dynamicDownloadTxt()">Download .txt File</button>
+        <button class="basic-color" (click)="dynamicDownloadJson()">Download .json File</button>
+        <button class="basic-color" (click)="closeModalSuccess('success-buy-stock')">Close Popup</button>
+    </jw-modal>
+    <jw-modal noCheck id="fail-buy-stock">
+        <h1>{{ notification }}</h1>
+        <button class="basic-color" (click)="closeModal('fail-buy-stock')">Close</button>
+    </jw-modal>
+    <jw-modal noCheck id="set-loading">
+        <img src="assets/images/loading.gif" alt="">
+    </jw-modal>
+</div>
