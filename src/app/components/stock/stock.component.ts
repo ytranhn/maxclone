@@ -136,14 +136,14 @@ export class StockComponent implements OnInit {
   dynamicDownloadTxt() {
     this.dyanmicDownloadByHtmlTag({
       fileName: 'MaxClone-data-txt',
-      text: JSON.parse(this.flatData)
+      text: this.dataPurchased
     });
   }
 
   dynamicDownloadJson() {
     this.dyanmicDownloadByHtmlTag({
       fileName: 'MaxClone-data-parse.json',
-      text: JSON.parse(this.flatData)
+      text: this.dataPurchased
     });
   }
 
