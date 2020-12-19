@@ -867,13 +867,17 @@ body {
 #custom-modal-1,
 #buy-stock,
 #success-buy-stock,
-#fail-buy-stock {
+#fail-buy-stock,
+#success-trans,
+#fail-trans {
   pointer-events: none;
 }
 #custom-modal-1 .jw-modal .jw-modal-body,
 #buy-stock .jw-modal .jw-modal-body,
 #success-buy-stock .jw-modal .jw-modal-body,
-#fail-buy-stock .jw-modal .jw-modal-body {
+#fail-buy-stock .jw-modal .jw-modal-body,
+#success-trans .jw-modal .jw-modal-body,
+#fail-trans .jw-modal .jw-modal-body {
   padding: 20px;
   background: #fff;
   width: 25%;
@@ -885,14 +889,18 @@ body {
 #custom-modal-1 .jw-modal .jw-modal-body h1,
 #buy-stock .jw-modal .jw-modal-body h1,
 #success-buy-stock .jw-modal .jw-modal-body h1,
-#fail-buy-stock .jw-modal .jw-modal-body h1 {
+#fail-buy-stock .jw-modal .jw-modal-body h1,
+#success-trans .jw-modal .jw-modal-body h1,
+#fail-trans .jw-modal .jw-modal-body h1 {
   margin-bottom: 20px;
   font-size: 15px;
 }
 #custom-modal-1 .jw-modal .jw-modal-body button,
 #buy-stock .jw-modal .jw-modal-body button,
 #success-buy-stock .jw-modal .jw-modal-body button,
-#fail-buy-stock .jw-modal .jw-modal-body button {
+#fail-buy-stock .jw-modal .jw-modal-body button,
+#success-trans .jw-modal .jw-modal-body button,
+#fail-trans .jw-modal .jw-modal-body button {
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
@@ -900,14 +908,18 @@ body {
 #custom-modal-1 .jw-modal .jw-modal-body button:first-child,
 #buy-stock .jw-modal .jw-modal-body button:first-child,
 #success-buy-stock .jw-modal .jw-modal-body button:first-child,
-#fail-buy-stock .jw-modal .jw-modal-body button:first-child {
+#fail-buy-stock .jw-modal .jw-modal-body button:first-child,
+#success-trans .jw-modal .jw-modal-body button:first-child,
+#fail-trans .jw-modal .jw-modal-body button:first-child {
   background-color: #018B2B;
   color: #fff;
 }
 #custom-modal-1 .jw-modal .jw-modal-body input,
 #buy-stock .jw-modal .jw-modal-body input,
 #success-buy-stock .jw-modal .jw-modal-body input,
-#fail-buy-stock .jw-modal .jw-modal-body input {
+#fail-buy-stock .jw-modal .jw-modal-body input,
+#success-trans .jw-modal .jw-modal-body input,
+#fail-trans .jw-modal .jw-modal-body input {
   width: 100px;
   padding: 10px;
   margin-bottom: 20px;
@@ -916,55 +928,59 @@ body {
   #custom-modal-1 .jw-modal .jw-modal-body,
   #buy-stock .jw-modal .jw-modal-body,
   #success-buy-stock .jw-modal .jw-modal-body,
-  #fail-buy-stock .jw-modal .jw-modal-body {
+  #fail-buy-stock .jw-modal .jw-modal-body,
+  #success-trans .jw-modal .jw-modal-body,
+  #fail-trans .jw-modal .jw-modal-body {
     width: 90%;
     margin-top: 50%;
   }
   #custom-modal-1 .jw-modal .jw-modal-body h1,
   #buy-stock .jw-modal .jw-modal-body h1,
   #success-buy-stock .jw-modal .jw-modal-body h1,
-  #fail-buy-stock .jw-modal .jw-modal-body h1 {
+  #fail-buy-stock .jw-modal .jw-modal-body h1,
+  #success-trans .jw-modal .jw-modal-body h1,
+  #fail-trans .jw-modal .jw-modal-body h1 {
     font-size: 22px;
   }
 }
-#success-buy-stock h1 {
+#success-buy-stock h1, #success-trans h1 {
   color: #28a745;
 }
-#success-buy-stock .jw-modal .jw-modal-body {
+#success-buy-stock .jw-modal .jw-modal-body, #success-trans .jw-modal .jw-modal-body {
   width: 50%;
 }
-#success-buy-stock .jw-modal .jw-modal-body textarea {
+#success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
   width: 100%;
   height: 500px;
   padding: 20px 5px;
 }
 @media (max-width: 900px) {
-  #success-buy-stock .jw-modal .jw-modal-body {
+  #success-buy-stock .jw-modal .jw-modal-body, #success-trans .jw-modal .jw-modal-body {
     width: 90%;
     margin-top: 20%;
   }
 }
 @media (max-width: 600px) {
-  #success-buy-stock h1 {
+  #success-buy-stock h1, #success-trans h1 {
     font-size: 16px;
   }
-  #success-buy-stock h2 {
+  #success-buy-stock h2, #success-trans h2 {
     font-size: 16px;
   }
-  #success-buy-stock .jw-modal .jw-modal-body textarea {
+  #success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
     height: 280px;
     padding: 5px;
     font-size: 10px;
   }
 }
 @media (max-width: 360px) {
-  #success-buy-stock .jw-modal .jw-modal-body textarea {
+  #success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
     height: 200px;
     padding: 5px;
     font-size: 10px;
   }
 }
-#fail-buy-stock h1 {
+#fail-buy-stock h1, #fail-trans h1 {
   color: #dc3545;
 }
 .basic-color {
