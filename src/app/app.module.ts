@@ -16,6 +16,9 @@ import { NoRightClickDirective } from '../app/helpers/noRightClick/no-right.dire
 import { AuthGuard } from './auth/auth.gaurd';
 import { StockComponent } from './components/stock/stock.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { RechargeLogComponent } from './components/recharge-log/recharge-log.component';
+import { ApiresComponent } from './components/apires/apires.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
     DashboardComponent,
     StockComponent,
     NoRightClickDirective,
-    MaintenanceComponent
+    MaintenanceComponent,
+    NotificationComponent,
+    RechargeLogComponent,
+    ApiresComponent
   ],
   imports: [
     BrowserModule,

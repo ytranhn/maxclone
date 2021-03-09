@@ -629,19 +629,22 @@ body {
     padding: 20px 10px;
   }
 }
-.main .main-head div:last-child span {
-  float: right;
+.main .main-head div:last-child {
+  text-align: right;
 }
-@media (max-width: 600px) {
-  .main .main-head div:last-child span {
-    float: left;
+@media (max-width: 568px) {
+  .main .main-head div:last-child {
+    text-align: center;
   }
 }
-.main .main-head div:first-child span {
-  float: left;
-}
-.main .main-head div span:first-child svg {
-  width: 100%;
+@media (max-width: 568px) {
+  .main .main-head div:first-child {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .main .main-head div:first-child img {
+    width: 80%;
+  }
 }
 .main .main-body {
   padding-top: 30px;
@@ -652,6 +655,11 @@ body {
 @media (max-width: 600px) {
   .main .main-body .set1 {
     border-right: unset;
+  }
+}
+@media (max-width: 480px) {
+  .main .main-body .set1 {
+    margin-bottom: 30px;
   }
 }
 .main .main-body p {
@@ -679,6 +687,11 @@ body {
   cursor: not-allowed;
   background-color: rgba(0, 0, 0, 0.5);
 }
+@media (max-width: 568px) {
+  .main .main-body .account button {
+    margin-top: 5px;
+  }
+}
 .main .main-body .rechange {
   padding-top: 70px;
 }
@@ -703,8 +716,8 @@ body {
 }
 @media (max-width: 600px) {
   .main .main-body .rechange {
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .main .main-body .rechange h1 {
     font-size: 22px;
@@ -718,6 +731,31 @@ body {
   }
   .main .main-body .rechange .momo span {
     font-size: 18px;
+  }
+  .main .main-body .rechange.logg {
+    padding-top: 40px;
+  }
+  .main .main-body .rechange.logg p {
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .main .main-body .rechange h1 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .main .main-body .rechange .momo {
+    margin-bottom: 5px;
+  }
+  .main .main-body .rechange .momo img {
+    width: 100%;
+    padding-right: 10px;
+  }
+  .main .main-body .rechange .momo span {
+    display: none;
+  }
+  .main .main-body .rechange p {
+    font-size: 12px;
   }
 }
 .main .main-body .set2 {
@@ -767,7 +805,7 @@ body {
 .main .main-body .set2 .stock:nth-child(2) .pagination .pagination__list .pagination__item:hover .pagination__link {
   color: #fff;
 }
-.main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(4) span {
+.main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(2) span {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -776,8 +814,21 @@ body {
   font-size: 14px;
   margin-bottom: 0;
 }
-.main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(4) span:last-child {
+.main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(2) span:last-child {
   cursor: pointer;
+}
+.main .main-body .set2 .stock:first-child table tr th {
+  width: 12.5%;
+}
+.main .main-body .set2 .stock:first-child table tr th:first-child {
+  padding-left: 0;
+  width: 20%;
+}
+.main .main-body .set2 .stock:first-child table tr th:last-child {
+  padding-right: 0;
+}
+.main .main-body .set2 .stock:first-child table tr th:nth-child(2) {
+  width: 50%;
 }
 .main .main-body .set2 .stock:first-child table tr td:nth-child(2) span {
   overflow: hidden;
@@ -803,12 +854,19 @@ body {
   text-align: left;
   font-weight: normal;
   border-bottom: 1px solid #414141;
+  width: 15%;
 }
 .main .main-body .set2 .stock table tr th:first-child {
   padding-left: 0;
 }
 .main .main-body .set2 .stock table tr th:last-child {
   padding-right: 0;
+}
+.main .main-body .set2 .stock table tr th:nth-child(2) {
+  width: 50%;
+}
+.main .main-body .set2 .stock table tr th:nth-child(4) {
+  width: 20%;
 }
 .main .main-body .set2 .stock table tr td {
   padding: 10px 15px;
@@ -857,7 +915,7 @@ body {
     height: 20px;
     font-size: 13px;
   }
-  .main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(4) span {
+  .main .main-body .set2 .stock:nth-child(2) table tr td:nth-child(2) span {
     font-size: 8px;
   }
   .main .main-body .set2 .stock:first-child table tr td:nth-child(2) span {
@@ -869,7 +927,9 @@ body {
 #success-buy-stock,
 #fail-buy-stock,
 #success-trans,
-#fail-trans {
+#fail-trans,
+#set-loading,
+#apiRes {
   pointer-events: none;
 }
 #custom-modal-1 .jw-modal .jw-modal-body,
@@ -877,7 +937,9 @@ body {
 #success-buy-stock .jw-modal .jw-modal-body,
 #fail-buy-stock .jw-modal .jw-modal-body,
 #success-trans .jw-modal .jw-modal-body,
-#fail-trans .jw-modal .jw-modal-body {
+#fail-trans .jw-modal .jw-modal-body,
+#set-loading .jw-modal .jw-modal-body,
+#apiRes .jw-modal .jw-modal-body {
   padding: 20px;
   background: #fff;
   width: 25%;
@@ -891,7 +953,9 @@ body {
 #success-buy-stock .jw-modal .jw-modal-body h1,
 #fail-buy-stock .jw-modal .jw-modal-body h1,
 #success-trans .jw-modal .jw-modal-body h1,
-#fail-trans .jw-modal .jw-modal-body h1 {
+#fail-trans .jw-modal .jw-modal-body h1,
+#set-loading .jw-modal .jw-modal-body h1,
+#apiRes .jw-modal .jw-modal-body h1 {
   margin-bottom: 20px;
   font-size: 15px;
 }
@@ -900,7 +964,9 @@ body {
 #success-buy-stock .jw-modal .jw-modal-body button,
 #fail-buy-stock .jw-modal .jw-modal-body button,
 #success-trans .jw-modal .jw-modal-body button,
-#fail-trans .jw-modal .jw-modal-body button {
+#fail-trans .jw-modal .jw-modal-body button,
+#set-loading .jw-modal .jw-modal-body button,
+#apiRes .jw-modal .jw-modal-body button {
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
@@ -910,7 +976,9 @@ body {
 #success-buy-stock .jw-modal .jw-modal-body button:first-child,
 #fail-buy-stock .jw-modal .jw-modal-body button:first-child,
 #success-trans .jw-modal .jw-modal-body button:first-child,
-#fail-trans .jw-modal .jw-modal-body button:first-child {
+#fail-trans .jw-modal .jw-modal-body button:first-child,
+#set-loading .jw-modal .jw-modal-body button:first-child,
+#apiRes .jw-modal .jw-modal-body button:first-child {
   background-color: #018B2B;
   color: #fff;
 }
@@ -919,7 +987,9 @@ body {
 #success-buy-stock .jw-modal .jw-modal-body input,
 #fail-buy-stock .jw-modal .jw-modal-body input,
 #success-trans .jw-modal .jw-modal-body input,
-#fail-trans .jw-modal .jw-modal-body input {
+#fail-trans .jw-modal .jw-modal-body input,
+#set-loading .jw-modal .jw-modal-body input,
+#apiRes .jw-modal .jw-modal-body input {
   width: 100px;
   padding: 10px;
   margin-bottom: 20px;
@@ -930,7 +1000,9 @@ body {
   #success-buy-stock .jw-modal .jw-modal-body,
   #fail-buy-stock .jw-modal .jw-modal-body,
   #success-trans .jw-modal .jw-modal-body,
-  #fail-trans .jw-modal .jw-modal-body {
+  #fail-trans .jw-modal .jw-modal-body,
+  #set-loading .jw-modal .jw-modal-body,
+  #apiRes .jw-modal .jw-modal-body {
     width: 90%;
     margin-top: 50%;
   }
@@ -939,49 +1011,101 @@ body {
   #success-buy-stock .jw-modal .jw-modal-body h1,
   #fail-buy-stock .jw-modal .jw-modal-body h1,
   #success-trans .jw-modal .jw-modal-body h1,
-  #fail-trans .jw-modal .jw-modal-body h1 {
+  #fail-trans .jw-modal .jw-modal-body h1,
+  #set-loading .jw-modal .jw-modal-body h1,
+  #apiRes .jw-modal .jw-modal-body h1 {
     font-size: 22px;
   }
 }
-#success-buy-stock h1, #success-trans h1 {
+#success-buy-stock h1,
+#success-trans h1 {
   color: #28a745;
 }
-#success-buy-stock .jw-modal .jw-modal-body, #success-trans .jw-modal .jw-modal-body {
+#success-buy-stock .jw-modal .jw-modal-body,
+#success-trans .jw-modal .jw-modal-body {
   width: 50%;
 }
-#success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
+#success-buy-stock .jw-modal .jw-modal-body textarea,
+#success-trans .jw-modal .jw-modal-body textarea {
   width: 100%;
   height: 500px;
   padding: 20px 5px;
+  margin-bottom: 10px;
+}
+#success-buy-stock .jw-modal .jw-modal-body .basic-color,
+#success-trans .jw-modal .jw-modal-body .basic-color {
+  padding: 10px 5px;
+  font-size: 10px;
 }
 @media (max-width: 900px) {
-  #success-buy-stock .jw-modal .jw-modal-body, #success-trans .jw-modal .jw-modal-body {
+  #success-buy-stock .jw-modal .jw-modal-body,
+  #success-trans .jw-modal .jw-modal-body {
     width: 90%;
     margin-top: 20%;
   }
 }
 @media (max-width: 600px) {
-  #success-buy-stock h1, #success-trans h1 {
+  #success-buy-stock h1,
+  #success-trans h1,
+  #success-buy-stock h2,
+  #success-trans h2 {
     font-size: 16px;
   }
-  #success-buy-stock h2, #success-trans h2 {
-    font-size: 16px;
-  }
-  #success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
-    height: 280px;
-    padding: 5px;
-    font-size: 10px;
-  }
-}
-@media (max-width: 360px) {
-  #success-buy-stock .jw-modal .jw-modal-body textarea, #success-trans .jw-modal .jw-modal-body textarea {
+  #success-buy-stock .jw-modal .jw-modal-body textarea,
+  #success-trans .jw-modal .jw-modal-body textarea {
     height: 200px;
     padding: 5px;
     font-size: 10px;
   }
 }
-#fail-buy-stock h1, #fail-trans h1 {
+@media (max-width: 360px) {
+  #success-buy-stock h1,
+  #success-trans h1,
+  #success-buy-stock h2,
+  #success-trans h2 {
+    font-size: 14px;
+  }
+  #success-buy-stock .jw-modal .jw-modal-body textarea,
+  #success-trans .jw-modal .jw-modal-body textarea {
+    height: 200px;
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+#fail-buy-stock h1 {
   color: #dc3545;
+}
+#set-loading .jw-modal .jw-modal-body {
+  background: none;
+  margin-top: 50vh;
+}
+#set-loading .jw-modal .jw-modal-body img {
+  width: 50px;
+}
+#apiRes .jw-modal .jw-modal-body {
+  margin-top: 5%;
+  width: 60%;
+  text-align: left;
+  pointer-events: visible;
+}
+#apiRes .jw-modal .jw-modal-body .basic-color {
+  padding: 10px 5px;
+  font-size: 10px;
+}
+#apiRes .jw-modal .jw-modal-body button {
+  margin-top: 20px;
+}
+#apiRes .jw-modal .jw-modal-body .valueApi {
+  padding: 20px;
+  overflow-y: scroll;
+}
+@media (max-width: 768px) {
+  #apiRes .jw-modal .jw-modal-body {
+    width: 90%;
+  }
+  #apiRes .jw-modal .jw-modal-body .valueApi {
+    padding: 5px;
+  }
 }
 .basic-color {
   background-color: #414141;
@@ -1023,6 +1147,12 @@ body {
 }
 .success-color:hover {
   opacity: 0.85;
+}
+@media (max-width: 480px) {
+  .ngx-pagination a,
+  .ngx-pagination span {
+    font-size: 12px!important;
+  }
 }
 .ngx-pagination .current {
   background: #414141 !important;

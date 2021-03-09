@@ -2,3 +2,6 @@
 .special tr td:last-child {
   display: none;
 }
+.main .main-body .set2 .stock table tr th {
+  width: 20%;
+}

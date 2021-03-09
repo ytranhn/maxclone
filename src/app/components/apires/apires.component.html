@@ -1,0 +1,7 @@
+<div class="api-res">
+    <button class="basic-color" (click)="openModal('apiRes')">API GET CODE</button>
+    <jw-modal noCheck id="apiRes">
+        <div class="valueApi" [innerHTML]="valueAPI" *ngIf="valueAPI"></div>
+        <button class="basic-color" (click)="closeModal('apiRes')">Đóng Popup</button>
+    </jw-modal>
+</div>

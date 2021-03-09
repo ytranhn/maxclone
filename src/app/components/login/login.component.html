@@ -7,43 +7,32 @@
             <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">
                 <img src="assets/images/fb.png" alt="">
             </a>
+            <app-apires></app-apires>
         </div>
     </div>
     <div class="main-body row">
         <div class=" set1 col-md-4 col-12 no-gutters">
             <section *ngIf="currDiv == 'login'" class="account">
                 <form #loginForm="ngForm" (ngSubmit)="OnLogin(userName.value, password.value)">
-                    <input type="text" #userName ngModel name="userName" placeholder="Username" required><br>
-                    <input type="password" #password ngModel name="password" placeholder="Password" required>
+                    <input type="text" #userName ngModel name="userName" placeholder="Tên tài khoản" required><br>
+                    <input type="password" #password ngModel name="password" placeholder="Mật khẩu" required>
                     <p style="color:#dc3545; font-size: 14px;margin-top: 10px;">{{ notification }}</p>
-                    <span><button class="basic-color" [disabled]="!loginForm.valid" type="submit">LOGIN</button></span>
-                    <span style="margin-left: 20px;"><button class="basic-color" (click)="ShowDiv('register')">REGISTER</button></span>
+                    <span><button class="basic-color" [disabled]="!loginForm.valid" type="submit">ĐĂNG NHẬP</button></span>
+                    <span style="margin-left: 20px;"><button class="basic-color" (click)="ShowDiv('register')">ĐĂNG KÝ</button></span>
                 </form>
             </section>
             <section *ngIf="currDiv == 'register'" class="account">
                 <form #registerForm="ngForm" (ngSubmit)="OnRegister(userNameRegis.value, passwordRegis.value, emailRegis.value)">
-                    <input type="text" #userNameRegis ngModel name="userNameRegis" placeholder="Username" required><br>
-                    <input type="password" #passwordRegis ngModel name="passwordRegis" placeholder="Password" required><br>
+                    <input type="text" #userNameRegis ngModel name="userNameRegis" placeholder="Tên tài khoản" required><br>
+                    <input type="password" #passwordRegis ngModel name="passwordRegis" placeholder="Mật khẩu" required><br>
                     <input type="text" #emailRegis ngModel name="emailRegis" placeholder="Email" required>
                     <p style="color:#dc3545; font-size: 14px;margin-top: 10px;">{{ notification }}</p>
-                    <span><button class="basic-color" [disabled]="!registerForm.valid" type="submit">REGISTER</button></span>
-                    <span style="margin-left: 20px;"><button class="basic-color" (click)="ShowDiv('login')">LOGIN</button></span>
+                    <span><button class="basic-color" [disabled]="!registerForm.valid" type="submit">ĐĂNG KÝ</button></span>
+                    <span style="margin-left: 20px;"><button class="basic-color" (click)="ShowDiv('login')">ĐĂNG NHẬP</button></span>
                 </form>
             </section>
-            <section class="rechange logg">
-                <h1>HOW TO RECHARGE?</h1>
-                <div class="row no-gutters">
-                    <div class="col-md-12 col-3 no-gutters momo">
-                        <img src="assets/images/momo.png">
-                        <span>MOMO</span>
-                    </div>
-                    <div class="col-md-12 col-9 no-gutters information">
-                        <p>To: 0903206359</p>
-                        <p>Name: Dương Đình Tú</p>
-                        <p>Content: <span style="font-weight: bold;">your username</span></p>
-                    </div>
-                </div>
-            </section>
+            <app-recharge-log></app-recharge-log>
+            <app-notification></app-notification>
         </div>
         <div class="set2 col-md-8 col-12 no-gutters">
             <app-stock></app-stock>

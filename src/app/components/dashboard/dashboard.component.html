@@ -7,75 +7,77 @@
             <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">
                 <img src="assets/images/fb.png" alt="">
             </a>
+            <app-apires></app-apires>
         </div>
     </div>
     <div class="main-body row">
-        <div class=" set1 col-md-4 col-12 no-gutters" *ngIf="userInfo">
-            <div class="row no-gutters">
+        <div class=" set1 col-md-4 col-12 no-gutters">
+            <div class="row no-gutters" *ngIf="userInfo">
                 <section class="col-md-12 col-6 no-gutters account">
-                    <p>Hello: <span>{{ userInfo.Data.Username }}</span></p>
-                    <p>Balance: <span>{{ userInfo.Data.Balance }}</span></p>
-                    <button class="basic-color" (click)="openModal('custom-modal-1')">LOGOUT</button>
+                    <p>Xin chào: <span>{{ userInfo.Data.Username }}</span></p>
+                    <p>Số dư: <span>{{ userInfo.Data.Balance }}</span></p>
+                    <button class="basic-color" (click)="openModal('custom-modal-1')">ĐĂNG XUẤT</button>
                     <jw-modal noCheck id="custom-modal-1">
-                        <h1>Do you want Logout?</h1>
-                        <button class="basic-color" (click)="Logout()">LOGOUT</button>
-                        <button class="basic-color" (click)="closeModal('custom-modal-1')">CANCEL</button>
+                        <h1>Bạn muốn đăng xuất ?</h1>
+                        <button class="basic-color" (click)="Logout()">ĐĂNG XUẤT</button>
+                        <button class="basic-color" (click)="closeModal('custom-modal-1')">HỦY</button>
                     </jw-modal>
                 </section>
-                <section class="col-md-12 col-6 no-gutters rechange">
-                    <h1>HOW TO RECHARGE?</h1>
+                <section class="rechange logg">
+                    <h1>NẠP TIỀN</h1>
                     <div class="row no-gutters">
                         <div class="col-md-12 col-3 no-gutters momo">
                             <img src="assets/images/momo.png">
-                            <span>MOMO</span>
                         </div>
                         <div class="col-md-12 col-9 no-gutters information">
-                            <p>To: 0903206359</p>
-                            <p>Name: Dương Đình Tú</p>
-                            <p>Content: <span style="font-weight: bold;">{{ userInfo.Data.Username }}</span></p>
+                            <p>Sđt nhận: 0903206359</p>
+                            <p>Nội dung: <span style="font-weight: bold;">{{ userInfo.Data.Username }}</span></p>
+                            <p><i style="font-weight: normal; font-size: 15px;line-height: 1;">Nạp tiền qua MOMO, nhập chính xác nội dung là tên tài khoản của bạn,hệ thống sẽ tự động cộng tiền sau 30s-1p (Nếu quá 5 phút tiền chưa vào tài khoản, vui lòng inbox <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">fanpage</a>)</i></p>
                         </div>
                     </div>
                 </section>
+                <app-notification></app-notification>
             </div>
         </div>
         <div class="set2 col-md-8 col-12 no-gutters">
             <app-stock></app-stock>
             <div class="stock">
-                <h2>TRANSACTION HISTORY</h2>
+                <h2>GIAO DỊCH CỦA BẠN</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>DATE</th>
-                            <th>TYPE</th>
-                            <th>AMOUNT</th>
-                            <th>DESCRIPTION</th>
-                            <th>ACTION</th>
+                            <th>NGÀY</th>
+                            <th>MÔ TẢ</th>
+                            <th>LOẠI</th>
+                            <th>TIỀN</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody *ngIf="fullTrans">
                         <tr *ngFor="let item of fullTrans.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p }">
                             <td>{{ item.Date }}</td>
+                            <td><span tooltip="{{ item.Description }}" placement="bottom" show-delay="100" hide-delay="100">{{ item.Description }}</span></td>
                             <td>{{ item.Type }}</td>
                             <td>{{ item.Amount }}</td>
-                            <td><span tooltip="{{ item.Description }}" placement="bottom" show-delay="100" hide-delay="100">{{ item.Description }}</span></td>
-                            <td><button class="basic-color" (click)="openModalTrans('success-trans',item.Id)">VIEW</button></td>
+                            <td><button class="basic-color" (click)="openModalTrans('success-trans',item.Id)">Xem</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="pagination-bot" *ngIf="isShow"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+                <div class="pagination-bot" *ngIf="isShow"><pagination-controls previousLabel="Trước"
+                    nextLabel="Kế" (pageChange)="p = $event"></pagination-controls></div>
             </div>
         </div>
     </div>
     <jw-modal noCheck id="success-trans">
         <h1>{{ notification }}</h1>
-        <h2>Data List:</h2>
+        <h2>Danh sách dữ liệu:</h2>
         <textarea>{{ textareatrans }}</textarea>
-        <button class="basic-color" (click)="dynamicDownloadTxt()">Download .txt File</button>
-        <button class="basic-color" (click)="dynamicDownloadJson()">Download .json File</button>
-        <button class="basic-color" (click)="closeModalTrans('success-trans')">Close Popup</button>
+        <button class="basic-color" (click)="dynamicDownloadTxt()">Tải .txt File</button>
+        <button class="basic-color" (click)="dynamicDownloadJson()">Tải .json File</button>
+        <button class="basic-color" (click)="closeModalTrans('success-trans')">Đóng Popup</button>
     </jw-modal>
     <jw-modal noCheck id="fail-trans">
         <h1>{{ notification }}</h1>
-        <button class="basic-color" (click)="closeModalTrans('fail-trans')">Close</button>
+        <button class="basic-color" (click)="closeModalTrans('fail-trans')">Đóng</button>
     </jw-modal>
 </div>

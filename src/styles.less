@@ -886,7 +886,7 @@ body{
                     table{
                         tr{
                             td{
-                                &:nth-child(4){
+                                &:nth-child(2){
                                     span{
                                         overflow: hidden;
                                         text-overflow: ellipsis;
@@ -907,6 +907,19 @@ body{
                 &:first-child{
                     table{
                         tr{
+							th{
+								width: 12.5%;
+								&:first-child{
+									padding-left: 0;
+									width: 20%;
+								}
+								&:last-child{
+									padding-right: 0;
+								}
+								&:nth-child(2){
+									width: 50%;
+								}
+							}
                             td{
                                 &:nth-child(2){
                                     span{
@@ -937,13 +950,20 @@ body{
                             padding: 10px 15px 5px 15px;
                             text-align: left;
                             font-weight: normal;
-                            border-bottom: 1px solid #414141;
+							border-bottom: 1px solid #414141;
+							width: 15%;
                             &:first-child{
-                                padding-left: 0;
+								padding-left: 0;
                             }
                             &:last-child{
-                                padding-right: 0;
-                            }
+								padding-right: 0;
+							}
+							&:nth-child(2){
+								width: 50%;
+							}
+							&:nth-child(4){
+								width: 20%;
+							}
                         }
                         td{
                             padding: 10px 15px;
@@ -1000,7 +1020,7 @@ body{
                         table{
                             tr{
                                 td{
-                                    &:nth-child(4){
+                                    &:nth-child(2){
                                         span{
                                             font-size: 8px;
                                         }
@@ -1023,11 +1043,11 @@ body{
                         }
                     }
                 }
-            }
+			}
         }
     }
 }
-#custom-modal-1, #buy-stock, #success-buy-stock,#fail-buy-stock,#success-trans,#fail-trans,#set-loading{
+#custom-modal-1, #buy-stock, #success-buy-stock,#fail-buy-stock,#success-trans,#fail-trans,#set-loading, #apiRes{
 	pointer-events: none;
     .jw-modal .jw-modal-body {
         padding: 20px;
@@ -1123,6 +1143,31 @@ body{
 		margin-top: 50vh;
 		img{
 			width: 50px;
+		}
+	}
+}
+#apiRes{
+	.jw-modal .jw-modal-body{
+		margin-top: 5%;
+		width: 60%;
+		text-align: left;
+		pointer-events:visible;
+		.basic-color{
+			padding: 10px 5px;
+			font-size: 10px;
+		}
+		button{
+			margin-top: 20px;
+		}
+		.valueApi{
+			padding: 20px;
+			overflow-y: scroll;
+		}
+		@media(max-width: 768px){
+			width: 90%;
+			.valueApi{
+				padding: 5px;
+			}
 		}
 	}
 }

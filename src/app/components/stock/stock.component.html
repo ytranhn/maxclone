@@ -1,13 +1,13 @@
-<div class="stock">
-    <h2>STOCK NOW</h2>
+<div class="stock stock-1">
+    <h2>NGAY BÂY GIỜ</h2>
     <table [class.special]="!isShow">
         <thead>
             <tr>
-                <th>ACCOUNT</th>
-                <th>DESCRIPTION</th>
-                <th>PRICE</th>
-                <th>STOCK</th>
-                <th>ACTION</th>
+                <th>TÀI KHOẢN</th>
+                <th>MÔ TẢ</th>
+                <th>GIÁ</th>
+                <th>TỒN</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -17,13 +17,13 @@
                 <td>{{ item.Price }}</td>
                 <td>{{ item.Instock }}</td>
                 <td>
-                    <button class="basic-color" (click)="openModalStock('buy-stock', item.Code)">BUY</button>
+                    <button class="basic-color" (click)="openModalStock('buy-stock', item.Code)">Mua</button>
                     <jw-modal noCheck id="buy-stock">
                         <h1>Enter the quantity Stock</h1>
                         <form #buyStockCop="ngForm" (ngSubmit)="buyStock(quantityStock.value)">
                             <input type="number"  #quantityStock ngModel name="quantityStock" placeholder="Quantity" required><br>
-                            <button class="basic-color" type="submit">BUY</button>
-                            <button class="basic-color" type="button" (click)="closeModalStock('buy-stock')">CANCEL</button>
+                            <button class="basic-color" type="submit">MUA</button>
+                            <button class="basic-color" type="button" (click)="closeModalStock('buy-stock')">HỦY</button>
                         </form>
                     </jw-modal>
                 </td>
@@ -32,15 +32,15 @@
     </table>
     <jw-modal noCheck id="success-buy-stock">
         <h1>{{ notification }}</h1>
-        <h2>Data List:</h2>
+        <h2>Danh sách dữ liệu:</h2>
         <textarea>{{ dataPurchased }}</textarea>
-        <button class="basic-color" (click)="dynamicDownloadTxt()">Download .txt File</button>
-        <button class="basic-color" (click)="dynamicDownloadJson()">Download .json File</button>
-        <button class="basic-color" (click)="closeModalSuccess('success-buy-stock')">Close Popup</button>
+        <button class="basic-color" (click)="dynamicDownloadTxt()">Tải .txt File</button>
+        <button class="basic-color" (click)="dynamicDownloadJson()">Tải .json File</button>
+        <button class="basic-color" (click)="closeModalSuccess('success-buy-stock')">Đóng Popup</button>
     </jw-modal>
     <jw-modal noCheck id="fail-buy-stock">
         <h1>{{ notification }}</h1>
-        <button class="basic-color" (click)="closeModal('fail-buy-stock')">Close</button>
+        <button class="basic-color" (click)="closeModal('fail-buy-stock')">Đóng Popup</button>
     </jw-modal>
     <jw-modal noCheck id="set-loading">
         <img src="assets/images/loading.gif" alt="">

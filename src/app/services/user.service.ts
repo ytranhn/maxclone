@@ -61,4 +61,15 @@ export class UserService {
     return this.http.get(this.rootUrl+'api/user/transactiondetail?id='+id, {headers: new HttpHeaders({'AccessToken': this.getAccessToken()})});
   }
 
+  getNoti(){
+    return this.http.get(this.rootUrl + 'api/global/notification');
+  }
+
+  getApiRes(flat: number){
+    if(flat == 1){
+      return this.http.get(this.rootUrl+'api/user/apidocument', {headers: new HttpHeaders({'AccessToken': this.getAccessToken()})});
+    }
+    return this.http.get(this.rootUrl + 'api/user/apidocument');
+  }
+
 }
