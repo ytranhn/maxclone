@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../../services/user.service";
 import { ModalService } from '../../helpers/_modal/modal/modal.service';
+import { isBuffer } from "util";
 
 @Component({
   selector: "app-dashboard",
@@ -54,7 +55,9 @@ export class DashboardComponent implements OnInit {
   getTrans(){
     return this.userSvc.getTransHistory().subscribe((data:any)=>{
       if(data){
-        this.fullTrans = data.Data;
+        if(data.Code === 0){
+          this.fullTrans = data.Data;
+        }
       } 
     });
   }
@@ -71,20 +74,23 @@ export class DashboardComponent implements OnInit {
 
   //check_logout
   openModal(id) {
+    this.removeReloadItem();
     this.modalService.open(id);
   }
 
   closeModal(id) {
     this.modalService.close(id);
+    this.removeReloadItem();
   }
 
   openModalTrans(id, idTrans) {
-    this.removeReloadItem();
-    this.modalService.open(id);
+    this.openModal('set-loading');
     return this.userSvc.getDataTrans(idTrans).subscribe((data: any) => {
       if(data){
         this.detailTrans = data;
         if(this.detailTrans.Code == 0){
+          this.closeModal('set-loading');
+          this.modalService.open(id);
           const stringifiedData = JSON.stringify(this.detailTrans.Data);
           const parsedJson = JSON.parse(stringifiedData);
           this.textareatrans = parsedJson;
