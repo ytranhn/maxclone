@@ -71,7 +71,7 @@
     <jw-modal noCheck id="success-trans">
         <h1>{{ notification }}</h1>
         <h2>Danh sách dữ liệu:</h2>
-        <textarea>{{ textareatrans }}</textarea>
+        <textarea readonly>{{ textareatrans }}</textarea>
         <button class="basic-color" (click)="dynamicDownloadTxt()">Tải .txt File</button>
         <button class="basic-color" (click)="dynamicDownloadJson()">Tải .json File</button>
         <button class="basic-color" (click)="closeModalTrans('success-trans')">Đóng Popup</button>
