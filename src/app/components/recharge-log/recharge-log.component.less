@@ -1,0 +1,55 @@
+.momo{
+    display: flex;
+    padding-bottom: 20px;
+    .moo{
+        position: relative;
+        margin-right: 20px;
+        cursor: pointer;
+        img{
+            width: 75px;
+        }
+        &.active{
+            &:before{
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 75%;
+                height: 5px;
+                background-color: #000;
+                transition: .2s;
+            }
+        }
+    }
+    @media (max-width: 568px){
+        display: block;
+        padding-bottom: 0;
+        .moo{
+            margin-right: 0;
+            margin-bottom: 10px;
+            &.active{
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 75px;
+                    margin: auto 0;
+                    height: 75%;
+                    width: 5px;
+                    background-color: #000;
+                    transition: .2s;
+                }
+            }
+        }
+    }
+}
+.information{
+    display: none;
+    &.active{
+        display: block;
+    }
+}

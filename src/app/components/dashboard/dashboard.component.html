@@ -23,7 +23,7 @@
                         <button class="basic-color" (click)="closeModal('custom-modal-1')">HỦY</button>
                     </jw-modal>
                 </section>
-                <section class="rechange logg">
+                <!-- <section class="rechange logg">
                     <h1>NẠP TIỀN</h1>
                     <div class="row no-gutters">
                         <div class="col-md-12 col-3 no-gutters momo">
@@ -35,7 +35,8 @@
                             <p><i style="font-weight: normal; font-size: 15px;line-height: 1;">Nạp tiền qua MOMO, nhập chính xác nội dung là tên tài khoản của bạn,hệ thống sẽ tự động cộng tiền sau 30s-1p (Nếu quá 5 phút tiền chưa vào tài khoản, vui lòng inbox <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">fanpage</a>)</i></p>
                         </div>
                     </div>
-                </section>
+                </section> -->
+                <app-recharge-log [childMessage]="userName"></app-recharge-log>
                 <app-notification></app-notification>
             </div>
         </div>

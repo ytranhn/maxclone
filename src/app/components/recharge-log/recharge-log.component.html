@@ -2,11 +2,24 @@
     <h1>NẠP TIỀN</h1>
     <div class="row no-gutters">
         <div class="col-md-12 col-3 no-gutters momo">
-            <img src="assets/images/momo.png">
+            <div class="moo" [ngClass]="{'active': tab==='tab1'}" (click)="clickShow(1)"><img src="assets/images/momo.png"></div>
+            <div class="moo" [ngClass]="{'active': tab==='tab2'}" (click)="clickShow(2)"><img src="assets/images/vcb.png"></div>
+            <div class="moo" [ngClass]="{'active': tab==='tab3'}" (click)="clickShow(3)"><img src="assets/images/tcb.png"></div>
         </div>
-        <div class="col-md-12 col-9 no-gutters information">
+        <div class="col-md-12 col-9 no-gutters information" [ngClass]="{'active': tab==='tab1'}">
             <p>Sđt nhận: 0903206359</p>
-            <p>Nội dung: <span style="font-weight: bold;">your username</span></p>
+            <p>Nội dung: <span style="font-weight: bold;">{{ textName }}</span></p>
+            <p><i style="font-weight: normal; font-size: 15px;line-height: 1;">Nạp tiền qua MOMO, nhập chính xác nội dung là tên tài khoản của bạn,hệ thống sẽ tự động cộng tiền sau 30s-1p (Nếu quá 5 phút tiền chưa vào tài khoản, vui lòng inbox <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">fanpage</a>)</i></p>
+        </div>
+        <div class="col-md-12 col-9 no-gutters information" [ngClass]="{'active': tab==='tab2'}">
+            <p>Số tài khoản: 1090102593009</p>
+            <p>Tên người nhận: DƯƠNG ĐÌNH TÚ</p>
+            <p>Nội dung: <span style="font-weight: bold;">{{ textName }}</span></p>
+            <p><i style="font-weight: normal; font-size: 15px;line-height: 1;">Nạp tiền qua VCB, nhập chính xác nội dung là tên tài khoản của bạn,hệ thống sẽ tự động cộng tiền sau 30s-1p (Nếu quá 5 phút tiền chưa vào tài khoản, vui lòng inbox <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">fanpage</a>)</i></p>
+        </div>
+        <div class="col-md-12 col-9 no-gutters information" [ngClass]="{'active': tab==='tab3'}">
+            <p>Sđt nhận: 0903206359</p>
+            <p>Nội dung: <span style="font-weight: bold;">{{ textName }}</span></p>
             <p><i style="font-weight: normal; font-size: 15px;line-height: 1;">Nạp tiền qua MOMO, nhập chính xác nội dung là tên tài khoản của bạn,hệ thống sẽ tự động cộng tiền sau 30s-1p (Nếu quá 5 phút tiền chưa vào tài khoản, vui lòng inbox <a href="https://www.facebook.com/Max-Clone-Vn-100658945273136" target="_blank">fanpage</a>)</i></p>
         </div>
     </div>

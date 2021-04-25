@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   public userInfo: any;
   public fullTrans: any;
+  public userName: string;
   pageOfItems: Array<any>;
   p: number = 1;
   isShow: boolean = true;
@@ -48,6 +49,7 @@ export class DashboardComponent implements OnInit {
           localStorage.removeItem('AccessToken');
         }
         this.userInfo = data;
+        this.userName = data.Data.Username;
       }
     });
   }
